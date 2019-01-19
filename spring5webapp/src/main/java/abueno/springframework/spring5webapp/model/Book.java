@@ -1,5 +1,6 @@
-package guru.springframework.spring5webapp.model;
+package abueno.springframework.spring5webapp.model;
 
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,14 +8,18 @@ import java.util.Set;
  * Created by jt on 5/16/17.
  */
 
+@Entity
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
     private String isbn;
     private String publisher;
 
-    private Set<guru.springframework.spring5webapp.model.Author> authors = new HashSet<>();
+    @ManyToMany
+    private Set<abueno.springframework.spring5webapp.model.Author> authors = new HashSet<>();
 
     public Book() {
     }
@@ -25,7 +30,7 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public Book(String title, String isbn, String publisher, Set<guru.springframework.spring5webapp.model.Author> authors) {
+    public Book(String title, String isbn, String publisher, Set<abueno.springframework.spring5webapp.model.Author> authors) {
         this.title = title;
         this.isbn = isbn;
         this.publisher = publisher;
@@ -64,11 +69,11 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public Set<guru.springframework.spring5webapp.model.Author> getAuthors() {
+    public Set<abueno.springframework.spring5webapp.model.Author> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(Set<guru.springframework.spring5webapp.model.Author> authors) {
+    public void setAuthors(Set<abueno.springframework.spring5webapp.model.Author> authors) {
         this.authors = authors;
     }
 }

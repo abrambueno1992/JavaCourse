@@ -1,4 +1,4 @@
-package abueno.springframework.spring5webapp.model.repositories;
+package abueno.springframework.spring5webapp.repositories;
 
 import abueno.springframework.spring5webapp.model.Author;
 import org.springframework.data.repository.CrudRepository;
